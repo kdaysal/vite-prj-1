@@ -38,6 +38,7 @@ export default function App() {
       </div>
       <label htmlFor="userInput">Add List Items:</label>
       <input
+        className="user-input"
         type="text"
         id="userInput"
         onChange={handleChange}
