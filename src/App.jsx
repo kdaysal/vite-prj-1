@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Items from './components/Items'
 
@@ -9,12 +7,12 @@ export default function App() {
   const [newItem, setNewItem] = useState('')
 
   useEffect(() => {
-    console.log(`ListItems from useEffect: ${listItems}`)
+    // console.log(`ListItems from useEffect: ${listItems}`)
   }, [listItems])
 
   const handleAdd = (e) => {
     e.preventDefault();
-    console.log(`input received as ${newItem}`)
+    // console.log(`input received as ${newItem}`)
 
     setListItems((prev) => [...prev, newItem])
     setNewItem('')
@@ -45,14 +43,8 @@ export default function App() {
         value={newItem}
       ></input>
       <button onClick={handleAdd}>Add it!</button>
+      {!listItems.length && <p>No items on your list...SAD</p>}
       <Items listItems={listItems} />
     </>
   )
 }
-
-//export default App
-/*
-<button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-*/
