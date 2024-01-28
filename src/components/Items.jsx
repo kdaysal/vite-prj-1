@@ -1,18 +1,16 @@
 
 
-const Items = () => {
-
-    let listItems = ['Item 1', 'Item 2', 'Item 3']
-
+const Items = ({ listItems }) => {
 
     return (
-
-        <div>
-            <h2>List Items:</h2>
-            <p>{listItems}</p>
-        </div>
-
-
+        <>
+            <h2>List Items...</h2>
+            <div>
+                {listItems.map((listItem, index) => {
+                    return <p key={index}>{listItem}</p>
+                })}
+            </div>
+        </>
     )
 } // end Items component
 

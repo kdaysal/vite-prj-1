@@ -17,10 +17,11 @@ export default function App() {
     console.log(`input received as ${newItem}`)
 
     setListItems((prev) => [...prev, newItem])
+    setNewItem('')
   }
 
   const handleChange = (e) => {
-    console.log(e.target.value)
+    //console.log(e.target.value)
     setNewItem(e.target.value)
   }
 
@@ -35,7 +36,7 @@ export default function App() {
         value={newItem}
       ></input>
       <button onClick={handleSubmit}>Add it!</button>
-      <Items />
+      <Items listItems={listItems} />
     </>
   )
 }
