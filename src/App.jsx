@@ -12,7 +12,7 @@ export default function App() {
     console.log(`ListItems from useEffect: ${listItems}`)
   }, [listItems])
 
-  const handleSubmit = (e) => {
+  const handleAdd = (e) => {
     e.preventDefault();
     console.log(`input received as ${newItem}`)
 
@@ -20,14 +20,22 @@ export default function App() {
     setNewItem('')
   }
 
+  // runs whenever a character is typed into the <input>
   const handleChange = (e) => {
-    //console.log(e.target.value)
     setNewItem(e.target.value)
+  }
+
+  //clear listItems
+  const handleClear = () => {
+    setListItems([])
   }
 
   return (
     <>
       <h1>Vite + React Practice!</h1>
+      <div>
+        <button onClick={handleClear}>Clear List</button>
+      </div>
       <label htmlFor="userInput">Add List Items:</label>
       <input
         type="text"
@@ -35,7 +43,7 @@ export default function App() {
         onChange={handleChange}
         value={newItem}
       ></input>
-      <button onClick={handleSubmit}>Add it!</button>
+      <button onClick={handleAdd}>Add it!</button>
       <Items listItems={listItems} />
     </>
   )
